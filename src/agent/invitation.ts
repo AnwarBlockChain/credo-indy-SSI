@@ -101,7 +101,7 @@ export async function createInvitation(userId:any) {
 
   // 2️⃣ Convert invitation to URL
   const invitationUrl = oobRecord.outOfBandInvitation.toUrl({
-    domain: 'https://f9d6-2a0d-5600-235-5000-5e78-f8bc-3f47-ccdf.ngrok-free.app', // your agent endpoint
+    domain: 'http://159.203.35.6:5018', // your agent endpoint
   })
 
   console.log('Invitation URL:', invitationUrl)
@@ -140,7 +140,7 @@ export const create_mediation_url = async () => {
     
     // Generate the URL that Bifold can scan
     const mediatorInvitationUrl = invitationRecord.toUrl({
-      domain: "https://f9d6-2a0d-5600-235-5000-5e78-f8bc-3f47-ccdf.ngrok-free.app",
+      domain: "http://159.203.35.6:5018",
     })
     
     console.log('✅ Mediation URL created successfully')

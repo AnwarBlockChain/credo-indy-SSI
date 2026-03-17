@@ -44,7 +44,7 @@ export async function initializeAgent() {
   const config: InitConfig = {
     label: 'docs-agent-nodejs',
     logger: new ConsoleLogger(LogLevel.debug),
-    endpoints: ['https://f9d6-2a0d-5600-235-5000-5e78-f8bc-3f47-ccdf.ngrok-free.app'], // public DIDComm endpoint
+    endpoints: ['http://159.203.35.6:5018'], // public DIDComm endpoint
     walletConfig: {
       id: 'wallet-id-v2',
       key: 'testkey0000000000000000000000000'
