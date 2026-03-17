@@ -1,5 +1,5 @@
 // working-proof-listener.ts
-import { getAgent } from "./agent.ts"
+import { getAgent } from "./agent.js"
 
 export function setupWorkingProofListener() {
   const agent = getAgent()

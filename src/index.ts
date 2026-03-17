@@ -1,23 +1,23 @@
 import express from 'express'
 import cors from 'cors'
 
-import { getAgent, initializeAgent } from './agent/agent.ts'
-import { createInvitation } from './agent/invitation.ts'
+import { getAgent, initializeAgent } from './agent/agent.js'
+import { createInvitation } from './agent/invitation.js'
 import {
   registerConnectionListeners,
   getConnectedWallets,
-} from './agent/connected_Wallets.ts'
-import { connect } from './utils/connect_data_base.ts'
-import { getOrCreateIssuerDid } from './agent/get_Did.ts'
-import { registerCredentialEventHandlers } from './agent/connection_Events.ts'
-import { registerEmployeeSchema } from './agent/register_Schema.ts'
-import { importBCovrinDID } from './agent/import_Bcovrin_Did.ts'
-import { registerCredentialDefinition } from './agent/publish_Schema.ts'
-import { issueCredentialToBCWallet } from './agent/issue_Credentials.ts'
-import { setupWorkingProofListener } from './agent/proof_Events.ts'
-import { requestSimpleAttributeProof } from './agent/request_Proof.ts'
-import { createTenantWalletAndConnect } from './agent/create_Tenant_Wallet.ts'
-import { startDynamicTenantListener } from './agent/tenant_Event_Listener.ts'
+} from './agent/connected_Wallets.js'
+import { connect } from './utils/connect_data_base.js'
+import { getOrCreateIssuerDid } from './agent/get_Did.js'
+import { registerCredentialEventHandlers } from './agent/connection_Events.js'
+import { registerEmployeeSchema } from './agent/register_Schema.js'
+import { importBCovrinDID } from './agent/import_Bcovrin_Did.js'
+import { registerCredentialDefinition } from './agent/publish_Schema.js'
+import { issueCredentialToBCWallet } from './agent/issue_Credentials.js'
+import { setupWorkingProofListener } from './agent/proof_Events.js'
+import { requestSimpleAttributeProof } from './agent/request_Proof.js'
+import { createTenantWalletAndConnect } from './agent/create_Tenant_Wallet.js'
+import { startDynamicTenantListener } from './agent/tenant_Event_Listener.js'
 
 export const app = express()
 const PORT = process.env.Main_Port;

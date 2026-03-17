@@ -1,5 +1,5 @@
 // cred-def-registration.ts
-import { getAgent } from "./agent.ts"
+import { getAgent } from "./agent.js"
 
 export async function registerCredentialDefinition(schemaId:string) {
   try {

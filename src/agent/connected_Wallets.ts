@@ -1,6 +1,6 @@
-import { getAgent } from './agent.ts'
+import { getAgent } from './agent.js'
 import { ConnectionEventTypes } from '@credo-ts/core'
-import ConnectedWallet from '../schems/wallet.ts' // <-- use your mongoose model
+import ConnectedWallet from '../schems/wallet.js' // <-- use your mongoose model
 
 const connectedWallets: Record<string, any> = {}
 

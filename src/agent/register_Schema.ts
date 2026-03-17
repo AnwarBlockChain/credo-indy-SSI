@@ -1,5 +1,5 @@
 // schema-registration.ts
-import { getAgent } from "./agent.ts"
+import { getAgent } from "./agent.js"
 
 export async function registerEmployeeSchema(schemaName:any,attributes:string[]) {
   try {

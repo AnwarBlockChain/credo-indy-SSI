@@ -1,5 +1,5 @@
 import { CredentialEventTypes, CredentialState, CredentialStateChangedEvent } from "@credo-ts/core"
-import { getAgent } from "./agent.ts"
+import { getAgent } from "./agent.js"
 
 export async function registerCredentialEventHandlers() {
   const agent = getAgent()
