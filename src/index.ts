@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 
 import { getAgent, initializeAgent } from './agent/agent.js'
-import { createInvitation } from './agent/invitation.js'
+import { create_mediation_url, createInvitation } from './agent/invitation.js'
 import {
   registerConnectionListeners,
   getConnectedWallets,
@@ -143,6 +143,18 @@ app.post('/create-tenant-wallet', async (req, res) => {
     return res.status(500).json({ error: 'Failed to create tenant wallet', message: e.message });
   }
 });
+
+
+
+app.post('/create-mediation-url',async(req,res)=>{
+  try{
+    const mediation_Url = await create_mediation_url();
+    return res.status(200).json({ mediation_Url })
+
+  }catch(e:any){
+    return res.status(500).json({ error: 'Failed to create mediation URL', message: e.message })
+  }
+})
 
 
 //1

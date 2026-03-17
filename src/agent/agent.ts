@@ -44,7 +44,7 @@ export async function initializeAgent() {
   const config: InitConfig = {
     label: 'docs-agent-nodejs',
     logger: new ConsoleLogger(LogLevel.debug),
-    endpoints: [agentPort.toString()], // public DIDComm endpoint
+    endpoints: ['https://f9d6-2a0d-5600-235-5000-5e78-f8bc-3f47-ccdf.ngrok-free.app'], // public DIDComm endpoint
     walletConfig: {
       id: 'wallet-id-v2',
       key: 'testkey0000000000000000000000000'
@@ -110,7 +110,7 @@ export async function initializeAgent() {
   // Inbound/outbound transports
   agent.registerOutboundTransport(new HttpOutboundTransport())
   agent.registerOutboundTransport(new WsOutboundTransport())
-  agent.registerInboundTransport(new HttpInboundTransport({ port: agentPort }))
+  agent.registerInboundTransport(new HttpInboundTransport({ port: 3001 }))
   agent.registerInboundTransport(new WsInboundTransport({ port: 3002 }))
 
   // Listen for inbound messages

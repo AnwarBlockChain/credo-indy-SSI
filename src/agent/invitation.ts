@@ -90,7 +90,7 @@ export async function createInvitation(userId:any) {
   
   // ✅ CORRECT: Generate the standard OOB URL (Bifold accepts this)
   const mediatorInvitationUrl = invitationRecord.toUrl({
-    domain: agentPort.toString(),
+    domain: "https://f9d6-2a0d-5600-235-5000-5e78-f8bc-3f47-ccdf.ngrok-free.app",
   })
   console.log('✅ MEDIATOR URL FOR BIFOLD:', mediatorInvitationUrl)
   
@@ -109,7 +109,7 @@ export async function createInvitation(userId:any) {
   })
 
   const invitationUrl = oobRecord.outOfBandInvitation.toUrl({
-    domain: 'agentPort',
+    domain: "https://f9d6-2a0d-5600-235-5000-5e78-f8bc-3f47-ccdf.ngrok-free.app",
   })
 
   // Generate QR code
@@ -124,5 +124,29 @@ export async function createInvitation(userId:any) {
     legacyInvitationUrl,   // ✅ Only if needed
     // ❌ REMOVE oob_mediator_Invitation from return
     // base64Invitation     // ❌ Not needed
+  }
+}
+
+
+export const create_mediation_url = async()=>{
+
+  try{
+    const agent = getAgent()
+    const mediatorOutOfBandRecord = await agent.oob.createInvitation({ 
+    multiUseInvitation: true,
+    label: 'My Mediator for Bifold'
+  })
+
+  // Get the raw invitation record
+  const invitationRecord = mediatorOutOfBandRecord.outOfBandInvitation
+  
+  // ✅ CORRECT: Generate the standard OOB URL (Bifold accepts this)
+  const mediatorInvitationUrl = invitationRecord.toUrl({
+    domain: "https://f9d6-2a0d-5600-235-5000-5e78-f8bc-3f47-ccdf.ngrok-free.app",
+  })
+  return mediatorInvitationUrl
+
+  }catch(e:any){
+    throw new Error(`Failed to create mediation URL: ${e.message}`)
   }
 }
