@@ -31,6 +31,8 @@ import path from 'path'
 const genesisPath = path.join(__dirname, 'ledgers', 'builder-genesis.txn')
 const genesisTransactions = fs.readFileSync(genesisPath, 'utf8')
 let agent: Agent | null = null
+import { configDotenv } from 'dotenv'
+configDotenv()
 const agentPort = Number(process.env.Agent_Port) || 3001;
 
 

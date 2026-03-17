@@ -1,7 +1,8 @@
 import QRCode from 'qrcode'
 import { Attachment } from '@credo-ts/core'
 import { getAgent } from './agent'
-
+import { configDotenv } from 'dotenv'
+configDotenv()
 // export async function createInvitation(userId:any) {
 //   const agent = getAgent()
 //   //mediation URL

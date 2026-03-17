@@ -18,9 +18,11 @@ import { setupWorkingProofListener } from './agent/proof_Events.js'
 import { requestSimpleAttributeProof } from './agent/request_Proof.js'
 import { createTenantWalletAndConnect } from './agent/create_Tenant_Wallet.js'
 import { startDynamicTenantListener } from './agent/tenant_Event_Listener.js'
-
+import { configDotenv } from 'dotenv'
+configDotenv()
 export const app = express()
 const PORT = process.env.Main_Port;
+console.log(`teh port Main_Port is ${PORT}`)
 
 app.use(cors())
 app.use(express.json())
