@@ -73,6 +73,7 @@ import { getAgent } from './agent'
 // }
 
 
+const agentPort = Number(process.env.Agent_Port) || 3001;
 
 export async function createInvitation(userId:any) {
   const agent = getAgent()
@@ -88,14 +89,14 @@ export async function createInvitation(userId:any) {
   
   // ✅ CORRECT: Generate the standard OOB URL (Bifold accepts this)
   const mediatorInvitationUrl = invitationRecord.toUrl({
-    domain: 'https://f9d6-2a0d-5600-235-5000-5e78-f8bc-3f47-ccdf.ngrok-free.app',
+    domain: agentPort.toString(),
   })
   console.log('✅ MEDIATOR URL FOR BIFOLD:', mediatorInvitationUrl)
   
   // Optional: Create legacy format if needed
   const invitationJson = JSON.stringify(invitationRecord.toJSON())
   const base64Invitation = Buffer.from(invitationJson).toString('base64')
-  const legacyInvitationUrl = `https://f9d6-2a0d-5600-235-5000-5e78-f8bc-3f47-ccdf.ngrok-free.app?c_i=${base64Invitation}`
+  const legacyInvitationUrl = `agentPort?c_i=${base64Invitation}`
   
   // ❌ REMOVE THIS LINE - it's incorrect
   // const oob_mediator_Invitation = `https://...?00b=${base64Invitation}`
@@ -107,7 +108,7 @@ export async function createInvitation(userId:any) {
   })
 
   const invitationUrl = oobRecord.outOfBandInvitation.toUrl({
-    domain: 'https://f9d6-2a0d-5600-235-5000-5e78-f8bc-3f47-ccdf.ngrok-free.app',
+    domain: 'agentPort',
   })
 
   // Generate QR code

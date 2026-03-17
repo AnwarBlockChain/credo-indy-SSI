@@ -20,7 +20,7 @@ import { createTenantWalletAndConnect } from './agent/create_Tenant_Wallet.ts'
 import { startDynamicTenantListener } from './agent/tenant_Event_Listener.ts'
 
 export const app = express()
-const PORT = 3000
+const PORT = process.env.Main_Port;
 
 app.use(cors())
 app.use(express.json())
@@ -108,7 +108,7 @@ app.post('/schem-definition', async (req, res) => {
 app.post('/issue-credentials', async (req, res) => {
   try {
     const { tenantId,connectionId,athlete_id,nationality,gender } = req.body;
-    const issuing = await issueCredentialToBCWallet(tenantId,connectionId,athlete_id,nationality,gender)
+    const issuing = await issueCredentialToBCWallet(tenantId,connectionId,athlete_id,nationality)
     return res.status(200).json({ issuing })
   } catch (e: any) {
     console.error('Error issuing schema:', e)

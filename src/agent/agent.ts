@@ -31,6 +31,7 @@ import path from 'path'
 const genesisPath = path.join(__dirname, 'ledgers', 'builder-genesis.txn')
 const genesisTransactions = fs.readFileSync(genesisPath, 'utf8')
 let agent: Agent | null = null
+const agentPort = Number(process.env.Agent_Port) || 3001;
 
 
 
@@ -41,7 +42,7 @@ export async function initializeAgent() {
   const config: InitConfig = {
     label: 'docs-agent-nodejs',
     logger: new ConsoleLogger(LogLevel.debug),
-    endpoints: ['https://f9d6-2a0d-5600-235-5000-5e78-f8bc-3f47-ccdf.ngrok-free.app'], // public DIDComm endpoint
+    endpoints: [agentPort.toString()], // public DIDComm endpoint
     walletConfig: {
       id: 'wallet-id-v2',
       key: 'testkey0000000000000000000000000'
@@ -107,7 +108,7 @@ export async function initializeAgent() {
   // Inbound/outbound transports
   agent.registerOutboundTransport(new HttpOutboundTransport())
   agent.registerOutboundTransport(new WsOutboundTransport())
-  agent.registerInboundTransport(new HttpInboundTransport({ port: 3001 }))
+  agent.registerInboundTransport(new HttpInboundTransport({ port: agentPort }))
   agent.registerInboundTransport(new WsInboundTransport({ port: 3002 }))
 
   // Listen for inbound messages

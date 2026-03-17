@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
-    "start": "node src/index.ts"
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "@credo-ts/anoncreds": "^0.5.19",
